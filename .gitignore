@@ -1,0 +1,15 @@
+# Ignore Python virtual environments
+spacy-env/
+venv/
+.env/
+
+# Ignore cache and compiled files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+
+# Jupyter and VS Code files
+.ipynb_checkpoints/
+.vscode/
