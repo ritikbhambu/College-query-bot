@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login | College Chatbot</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #8EC5FC, #3C6FD3);
+            font-family: 'Segoe UI', sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+        }
+
+        .login-container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 16px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            width: 360px;
+        }
+
+        .login-container h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #ffffff;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 500;
+            color: #f2f2f2;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            font-size: 15px;
+            outline: none;
+        }
+
+        input::placeholder {
+            color: #eee;
+        }
+
+        select option {
+            color: #000;
+            /* ensures the dropdown options are visible */
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #0052cc;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #003d99;
+        }
+
+        .error {
+            background-color: rgba(255, 0, 0, 0.2);
+            color: #ffdede;
+            padding: 10px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-container">
+        <h2>College Query Bot Login</h2>
+
+        {% if error %}
+        <div class="error">{{ error }}</div>
+        {% endif %}
+
+        <form action="/login" method="POST">
+            <label for="username">Username</label>
+            <input type="text" name="username" placeholder="Enter username" required />
+
+            <label for="password">Password</label>
+            <input type="password" name="password" placeholder="Enter password" required />
+
+            <label for="role">Login as</label>
+            <select name="role" required>
+                <option value="">-- Select Role --</option>
+                <option value="Student">Student</option>
+                <option value="Faculty">Faculty</option>
+            </select>
+
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</body>
+
+</html>
