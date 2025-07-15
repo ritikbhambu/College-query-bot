@@ -1,31 +1,24 @@
-# chatbot/query_engine.py
+import joblib
+
+# Load trained intent classifier model
+model = joblib.load('intent_classifier.pkl')
+
+# Define list of known subjects (for subject extraction)
+KNOWN_SUBJECTS = ["dbms", "math", "os", "cse", "ds", "ai", "ml"]
 
 def tokenize(message):
     return message.lower().replace('?', '').replace('.', '').split()
 
 def extract_query_info(message):
+    # Intent prediction (from ML model)
+    predicted_intent = model.predict([message])[0]  # string like 'get_attendance'
+
+    # Subject extraction 
     tokens = tokenize(message)
-
-    # Possessive check
-    if any(word in tokens for word in ["friend", "friends", "his", "her", "their", "someone"]):
-        return "unsupported", None
-
-    # Intent detection
-    if "attendance" in tokens:
-        intent = "attendance"
-    elif "marks" in tokens or "score" in tokens:
-        intent = "marks"
-    elif "faculty" in tokens or "teacher" in tokens:
-        intent = "faculty"
-    else:
-        intent = None
-
-    # Subject detection
-    subjects = ["dbms", "math", "os", "cse", "ds", "ai", "ml"]
     subject = None
     for token in tokens:
-        if token in subjects:
+        if token in KNOWN_SUBJECTS:
             subject = token.upper()
             break
 
-    return intent, subject
+    return predicted_intent, subject

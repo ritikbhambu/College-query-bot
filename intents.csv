@@ -1,0 +1,25 @@
+Text,Intent
+Show my attendance,get_attendance
+What is my attendance?,get_attendance
+How many classes did I attend?,get_attendance
+Who is my subject teacher?,get_faculty_info
+Who teaches Operating Systems?,get_faculty_info
+List students in CSE,get_students_by_dept
+List students in IT department,get_students_by_dept
+Get exam results,get_exam_result
+Show my exam result,get_exam_result
+When is the next exam?,get_exam_schedule
+Show upcoming exams,get_exam_schedule
+Who is the HOD of CSE?,get_hod_info
+Give me syllabus of DBMS,get_syllabus
+Show syllabus of Operating Systems,get_syllabus
+What's the timetable today?,get_timetable
+Show today's timetable,get_timetable
+When is my next class?,get_timetable
+How many credits do I have?,get_credit_info
+Get my credit score,get_credit_info
+Where is my classroom?,get_location_info
+Where is lab 205?,get_location_info
+Who is the top student?,get_topper_info
+Show result of roll 102,get_student_result
+Get result of roll number 205,get_student_result
